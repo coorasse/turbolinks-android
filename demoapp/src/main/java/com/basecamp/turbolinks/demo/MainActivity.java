@@ -10,7 +10,7 @@ import com.basecamp.turbolinks.TurbolinksView;
 
 public class MainActivity extends AppCompatActivity implements TurbolinksAdapter {
     // Change the BASE_URL to an address that your VM or device can hit.
-    private static final String BASE_URL = "http://10.0.1.100:9292";
+    private static final String BASE_URL = "http://10.0.2.2:3000";
     private static final String INTENT_URL = "intentUrl";
 
     private String location;
@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
             .adapter(this)
             .view(turbolinksView)
             .visit(location);
+
+        getActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -95,6 +97,10 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         intent.putExtra(INTENT_URL, location);
 
         this.startActivity(intent);
+        System.out.print(action);
+        if (action.equals("replace")) {
+            finish();
+        }
     }
 
     // -----------------------------------------------------------------------

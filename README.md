@@ -61,7 +61,7 @@ In your activity's layout, insert the `TurbolinksView` custom view.
 
 ### 2. Implement the TurbolinksAdapter Interface
 
-Implement the `TurbolinksAdapter` interface in your activity, which will require implement a handful of callback methods. These callbacks are [outlined in greater detail below](#handling-adapter-callbacks).
+Implement the `TurbolinksAdapter` interface in your activity, which will require implementing a handful of callback methods. These callbacks are [outlined in greater detail below](#handling-adapter-callbacks).
 
 Right off the bat, you don't need to worry about handling every callback, especially if you're starting off with a simple app. Most can be left as empty methods for now.
 
@@ -100,7 +100,7 @@ The `TurbolinksAdapter` class provides callback events directly from the WebView
 
 As mentioned earlier, you must implement `visitProposedToLocationWithAction`, or your app won't know what to do when a link is clicked inside a WebView.
 
-You can of course choose to leave the rest of adapter callbacks blank, but we'd recommend implementing the two error handling callbacks (`onReceivedError` and `requestFailedWithStatusCode`) for when things go wrong.
+You can of course choose to leave the rest of the adapter callbacks blank, but we'd recommend implementing the two error handling callbacks (`onReceivedError` and `requestFailedWithStatusCode`) for when things go wrong.
 
 #### visitProposedToLocationWithAction
 
@@ -150,13 +150,13 @@ The library will automatically fall back to cold booting the location (which it 
 
 ### Custom Instance(s) of TurbolinksSession
 
-We provide a single, reusable instance of Turbolinks that you can access through this convenience method:
+We provide a single, reusable instance of TurbolinksSession that you can access through this convenience method:
 
 ```java
 TurbolinksSession turbolinksSession = TurbolinksSession.getDefault(context);
 ```
 
-If you need greater control, you can always create your own instance(s) of Turbolinks with:
+If you need greater control, you can always create your own instance(s) with:
 
 ```java
 TurbolinksSession myTurbolinksSession = TurbolinksSession.getNew(context);
@@ -189,7 +189,7 @@ TurbolinksSession.getDefault(this)
 Some notes about using a custom progress view:
 
 - It doesn't matter what kind of layout view you use, but you'll want to do something that covers the entire `WebView` and uses `match_parent` for the height and width.
-- We ask you to provide the resource ID of the progress bar *inside your progress view* so that we can internally handle when to display it. The library has a mechanism that can delay showing the progress bar to improve perceived loading times (a slight delay in showing the progress bar makes apps feel faster), so we need a handle to the to that view.
+- We ask you to provide the resource ID of the progress bar *inside your progress view* so that we can internally handle when to display it. The library has a mechanism that can delay showing the progress bar to improve perceived loading times (a slight delay in showing the progress bar makes apps feel faster), so we need a handle to that view.
 - In conjunction with the progress bar resource ID, you can also specify the delay in milliseconds before it's displayed. The default progress bar shows after 500 ms.
 
 ### Custom WebView WebSettings
@@ -208,11 +208,11 @@ settings.setDomStorageEnabled(false);
 settings.setAllowFileAccess(false);
 ```
 
-**If you do update the WebView settings, be sure not to override `setJavaScriptEnabled(false)`. Doing so would break Turbolinks, which relies heavily on Javascript.**
+**If you do update the WebView settings, be sure not to override `setJavaScriptEnabled(false)`. Doing so would break Turbolinks, which relies heavily on JavaScript.**
 
 ### Custom JavascriptInterfaces
 
-If you have custom Javascript on your pages that you want to access as JavascriptInterfaces, you can add them like so:
+If you have custom JavaScript on your pages that you want to access as JavascriptInterfaces, you can add them like so:
 
 ```java
 TurbolinksSession.getDefault().addJavascriptInterface(this, "MyCustomJavascriptInterface");
@@ -255,9 +255,9 @@ You should see a message saying what port the demo web app is running on. It usu
 
 ## Contributing
 
-Turbolinks Android is open-source software, freely distributable under the terms of an [MIT-style license](LICENSE). The [source code is hosted on GitHub](https://github.com/basecamp/turbolinks-android).
+Turbolinks Android is open-source software, freely distributable under the terms of an [MIT-style license](LICENSE). The [source code is hosted on GitHub](https://github.com/turbolinks/turbolinks-android).
 
-We welcome contributions in the form of bug reports, pull requests, or thoughtful discussions in the [GitHub issue tracker](https://github.com/basecamp/turbolinks-android/issues). Please see the [Code of Conduct](CONDUCT.md) for our pledge to contributors.
+We welcome contributions in the form of bug reports, pull requests, or thoughtful discussions in the [GitHub issue tracker](https://github.com/turbolinks/turbolinks-android/issues). Please see the [Code of Conduct](CONDUCT.md) for our pledge to contributors.
 
 Turbolinks Android was created by [Dan Kim](https://twitter.com/dankim) and [Jay Ohms](https://twitter.com/jayohms), with guidance and help from [Sam Stephenson](https://twitter.com/sstephenson) and [Jeffrey Hardy](https://twitter.com/packagethief). Development is sponsored by [Basecamp](https://basecamp.com/).
 

@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         intent.putExtra(INTENT_URL, location);
 
         this.startActivity(intent);
-        System.out.print(action);
         if (action.equals("replace")) {
             finish();
         }
